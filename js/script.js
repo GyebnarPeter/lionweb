@@ -38,6 +38,7 @@ let headerLogo = document.querySelector(".header-logo"),
     navBtnScroll = document.querySelector(".nav-btn-scroll"),
     navCloseBtn = document.querySelector(".nav-close-btn"),
     webshopBtn = document.querySelector(".webshop-btn"),
+    coverTitle = document.querySelectorAll(".cover h1 span");
     allLink = document.querySelectorAll("a"),
     hoverItems = [headerLogo, navBtnFix, webshopBtn, navBtnScroll, navCloseBtn];
 
@@ -58,6 +59,15 @@ allLink.forEach( (item) => {
     cursorHover(item);
 });
 
+coverTitle.forEach( (item) => {
+    item.addEventListener("mouseover", () => {
+        document.querySelector(".cursor").classList.add("cursor-hover-cover");
+    })
+    item.addEventListener("mouseout", () => {
+        document.querySelector(".cursor").classList.remove("cursor-hover-cover");
+    })
+});
+
 // Toggle nav
 let nav = document.querySelector(".nav-wrap");
 let navcloseBtn = document.querySelector(".nav-close-btn");
@@ -65,7 +75,6 @@ let navcloseBtn = document.querySelector(".nav-close-btn");
 let openNav = () => {
     nav.classList.add("nav-wrap-toggle");
     navBtnFix.style.display = "none";
-    document.body.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
 }
 
 navBtnFix.onclick = () => openNav();
@@ -74,5 +83,4 @@ navBtnScroll.onclick = () => openNav();
 navcloseBtn.onclick = () => {
     nav.classList.remove("nav-wrap-toggle");
     navBtnFix.style.display = "flex";
-    document.body.style.backgroundColor = "white";
 }

@@ -39,11 +39,19 @@ body::-webkit-scrollbar-thumb {
     mix-blend-mode: difference;
     transition: transform 0.3s ease;
     transition: .2s;
-    z-index: 10000;
+    z-index: 3000;
 }
 
 .cursor-hover {
     transform: translate(-50%, -50%) scale(8);
+}
+
+.cursor-hover-cover {
+    transform: translate(-50%, -50%) scale(30);
+    background: url("../img/cursor-bg.jpg") no-repeat center;
+    background-size: cover;
+    mix-blend-mode: normal;
+    z-index: 0;
 }
 
 .contact-box {
@@ -219,8 +227,46 @@ nav .hover-this:hover ~ .cursor {
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 
-.content {
-    height: 1000px;
+
+/* ---------------------- COVER ---------------------- */
+
+.cover-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 150px 0;
+}
+
+.cover {
+    display: inline-block;
+    background: white;
+}
+
+.cover p {
+    margin: 0;
+    z-index: 5000;
+    mix-blend-mode: darken;
+}
+
+.cover h1 {
+    font-size: 5em;
+    font-weight: 600;
+    margin: 0;
+    color: transparent;
+    -webkit-text-stroke: 1.5px #000;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+    z-index: 5000;
+}
+
+.cover h1 span:hover {
+    color: white;
+    mix-blend-mode: difference;
+    -webkit-text-stroke: 0px #000;
+}
+
+.cover h1 span:nth-child(2) {
+    margin: 0 40px;
 }
 
 
