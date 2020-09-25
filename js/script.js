@@ -1,6 +1,7 @@
 // Cursor effect
 (function() {
     
+    // Nav animation
     const link = document.querySelectorAll('nav > .hover-this');
     const cursor = document.querySelector('.cursor');
     
@@ -18,6 +19,7 @@
         if (e.type === 'mouseleave') span.style.transform = '';
     };
     
+    // Cursor position
     const editCursor = e => {
         const { clientX: x, clientY: y } = e;
         cursor.style.left = x + 'px';
@@ -31,66 +33,46 @@
 })();
 
 // Hover elements
-let headerLogo = document.querySelector(".header-logo");
-let navBtnFix = document.querySelector(".nav-btn-fix");
-let navBtnScroll = document.querySelector(".nav-btn-scroll");
-let navCloseBtn = document.querySelector(".nav-close-btn");
-let webshopBtn = document.querySelector(".webshop-btn");
-let hoverItems = [headerLogo, navBtnFix, webshopBtn, navBtnScroll, navCloseBtn];
+let headerLogo = document.querySelector(".header-logo"),
+    navBtnFix = document.querySelector(".nav-btn-fix"),
+    navBtnScroll = document.querySelector(".nav-btn-scroll"),
+    navCloseBtn = document.querySelector(".nav-close-btn"),
+    webshopBtn = document.querySelector(".webshop-btn"),
+    allLink = document.querySelectorAll("a"),
+    hoverItems = [headerLogo, navBtnFix, webshopBtn, navBtnScroll, navCloseBtn];
 
-let cursorHover = () => {
-    hoverItems.forEach( (item) => {
-        item.addEventListener("mouseover", () => {
-            document.querySelector(".cursor").classList.add("cursor-hover");
-        })
-        item.addEventListener("mouseout", () => {
-            document.querySelector(".cursor").classList.remove("cursor-hover");
-        })
-    });
-}
-
-cursorHover();
-
-let navLink = document.querySelectorAll("nav a");
-navLink.forEach((item) => {
+let cursorHover = (item) => {
     item.addEventListener("mouseover", () => {
         document.querySelector(".cursor").classList.add("cursor-hover");
     })
     item.addEventListener("mouseout", () => {
         document.querySelector(".cursor").classList.remove("cursor-hover");
     })
+};
+
+hoverItems.forEach( (item) => {
+    cursorHover(item);
 });
 
-let socialLink = document.querySelectorAll(".social a");
-socialLink.forEach((item) => {
-    item.addEventListener("mouseover", () => {
-        document.querySelector(".cursor").classList.add("cursor-hover");
-    })
-    item.addEventListener("mouseout", () => {
-        document.querySelector(".cursor").classList.remove("cursor-hover");
-    })
+allLink.forEach( (item) => {
+    cursorHover(item);
 });
-
 
 // Toggle nav
 let nav = document.querySelector(".nav-wrap");
 let navcloseBtn = document.querySelector(".nav-close-btn");
 
-navBtnFix.onclick = () => {
+let openNav = () => {
     nav.classList.add("nav-wrap-toggle");
     navBtnFix.style.display = "none";
     document.body.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
 }
 
-navBtnScroll.onclick = () => {
-    nav.classList.add("nav-wrap-toggle");
-    navBtnFix.style.display = "none";
-    document.body.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
-}
+navBtnFix.onclick = () => openNav();
+navBtnScroll.onclick = () => openNav();
 
 navcloseBtn.onclick = () => {
     nav.classList.remove("nav-wrap-toggle");
     navBtnFix.style.display = "flex";
     document.body.style.backgroundColor = "white";
 }
-

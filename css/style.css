@@ -30,6 +30,22 @@ body::-webkit-scrollbar-thumb {
     border: 2px solid white;
 }
 
+.cursor {
+    pointer-events: none;
+    position: fixed;
+    padding: 0.3rem;
+    background-color: #fff;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    transition: transform 0.3s ease;
+    transition: .2s;
+    z-index: 10000;
+}
+
+.cursor-hover {
+    transform: translate(-50%, -50%) scale(8);
+}
+
 .contact-box {
     border: 1px solid;
     width: 70px;
@@ -165,6 +181,10 @@ header {
     color: var(--font-color);
 }
 
+.nav-wrap .social a:hover {
+    color: green;
+}
+
 .nav-wrap h2 {
     font-size: 0.9em;
     color: rgba(0, 0, 0, 0.4);
@@ -185,22 +205,6 @@ nav span {
     text-transform: uppercase;
     pointer-events: none;
     transition: transform 0.1s linear;
-}
-
-.cursor {
-    pointer-events: none;
-    position: fixed;
-    padding: 0.3rem;
-    background-color: #fff;
-    border-radius: 50%;
-    mix-blend-mode: difference;
-    transition: transform 0.3s ease;
-    transition: .3s;
-    z-index: 10000;
-}
-
-.cursor-hover {
-    transform: translate(-50%, -50%) scale(8);
 }
 
 nav .hover-this {
