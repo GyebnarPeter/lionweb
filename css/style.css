@@ -68,6 +68,7 @@ body::-webkit-scrollbar-thumb {
     right: 50px;
     cursor: pointer;
     transition: .3s;
+    z-index: 2000;
 }
 
 .contact-box:hover {
@@ -269,6 +270,121 @@ nav .hover-this:hover ~ .cursor {
     margin: 0 40px;
 }
 
+.cover p ~ p {
+    font-size: 1.5em;
+    width: 800px;
+    margin: 200px 0;
+}
+
+
+/* ---------------------- SERVICES ---------------------- */
+
+.services-wrap {
+    width: 100%;
+    display: flex;
+    text-align: center;
+}
+
+.services-description-wrap {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.services-description {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+}
+
+.services-picture-wrap {
+    flex-grow: 1;
+    flex-basis: 0;
+    transition: 1s;
+}
+
+.services-picture-wrap:hover {
+    transform: rotateY(20deg) skewY(-2deg);
+}
+
+.services-picture {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+}
+
+
+.services-picture img {
+    height: 80vh;
+}
+
+.services-picture figure {
+    position: relative;
+    overflow: hidden;
+}
+.services-picture figure::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	display: block;
+	content: '';
+	width: 0;
+	height: 0;
+	background: rgba(255,255,255,.2);
+	border-radius: 100%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	opacity: 0;
+}
+.services-picture figure:hover::before {
+	-webkit-animation: circle .75s;
+	animation: circle .75s;
+}
+@-webkit-keyframes circle {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
+}
+@keyframes circle {
+	0% {
+		opacity: 1;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		width: 200%;
+		height: 200%;
+		opacity: 0;
+	}
+}
+
+.services-cover-item {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 10vh;
+    width: 50%;
+    background: white;
+    display: none;
+}
+
+.other {
+    height: 1000px;
+}
 
 @media screen and (max-width: 768px) {
 
